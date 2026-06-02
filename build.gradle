@@ -1,0 +1,57 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'java'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.skriptlang.org/releases' }
+    maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+    maven { url 'https://repo.mvdw-software.com/content/groups/public/' }
+}
+
+dependencies {
+    implementation group: 'org.jetbrains', name: 'annotations', version: '24.1.0'
+    implementation 'org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT'
+    implementation ('com.github.SkriptLang:Skript:2.10.2') {
+        transitive = false
+    }
+    implementation ('me.clip:placeholderapi:2.12.2')
+    implementation('be.maximvdw:MVdWPlaceholderAPI:3.1.1-SNAPSHOT') {
+    	transitive = false
+    }
+}
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            'version': version
+    ]
+}
+
+tasks.register('nightlyResources', ProcessResources) {
+    from 'src/main/resources', {
+        include '**'
+        filter ReplaceTokens, tokens: [
+                'version': project.property('version') + '-nightly-' + 'git rev-parse --short HEAD'.execute().text.trim()
+        ]
+    }
+    into 'build/resources/main'
+}
+
+tasks.register('nightlyBuild', Jar) {
+    dependsOn nightlyResources
+    from sourceSets.main.output
+    archiveFileName = 'skript-placeholders-nightly.jar'
+}
