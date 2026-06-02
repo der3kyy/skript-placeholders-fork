@@ -8,8 +8,6 @@ Integrating placeholders into Skript.
 > 
 > The addon was written using AI, but I have tested it myself, and it works perfectly.  
 > 
-> If you encounter any bugs, please report them using the [issues](https://github.com/der3kyy/skript-placeholders-fork/issues) tab.  
-> 
 > This version removes support for the MVdWPlaceholderAPI, as it is deprecated!  
 > 
 > I am not the author of this addon; I merely rewrote it for the new version of Skript.  
