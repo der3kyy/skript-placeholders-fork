@@ -19,12 +19,11 @@ public class PlaceholderEvent extends Event {
 	private @Nullable String result;
 
 	public PlaceholderEvent(String placeholder, @Nullable OfflinePlayer player) {
-		// Declare the event as sync or async.
 		super(!Bukkit.getServer().isPrimaryThread());
 
 		this.placeholder = placeholder;
 		int underscorePos = placeholder.indexOf("_");
-		if (underscorePos != -1) { // We can get some sort of prefix and identifier out of this placeholder
+		if (underscorePos != -1) {
 			prefix = placeholder.substring(0, underscorePos);
 			identifier = placeholder.substring(underscorePos + 1);
 		} else {
@@ -59,8 +58,6 @@ public class PlaceholderEvent extends Event {
 	public String getResult() {
 		return result;
 	}
-
-	// Bukkit Stuff
 
 	private static final HandlerList handlerList = new HandlerList();
 

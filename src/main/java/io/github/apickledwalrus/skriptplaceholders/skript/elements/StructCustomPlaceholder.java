@@ -62,7 +62,6 @@ public class StructCustomPlaceholder extends Structure implements PlaceholderEva
 						.build()
 		);
 
-		// Регистрация event values через тот же EventValueRegistry
 		EventValueRegistry eventValueRegistry = SkriptPlaceholders.eventValueRegistry;
 		eventValueRegistry.register(
 				EventValue.builder(PlaceholderEvent.class, Player.class)
@@ -79,7 +78,6 @@ public class StructCustomPlaceholder extends Structure implements PlaceholderEva
 		);
 	}
 
-	// остальной код без изменений...
 	private SectionNode source;
 	private PlaceholderRegistry registry;
 	private String placeholder;

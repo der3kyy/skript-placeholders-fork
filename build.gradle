@@ -1,4 +1,8 @@
-import org.apache.tools.ant.filters.ReplaceTokens
+buildscript {
+    dependencies {
+        classpath 'org.apache.ant:ant:1.10.14'
+    }
+}
 
 plugins {
     id 'java'

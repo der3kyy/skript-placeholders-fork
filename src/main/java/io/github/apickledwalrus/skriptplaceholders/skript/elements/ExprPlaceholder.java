@@ -42,14 +42,13 @@ public class ExprPlaceholder extends SimpleExpression<String> {
 				SyntaxInfo.Expression.builder(ExprPlaceholder.class, String.class)
 						.priority(Priority.base())
 						.addPatterns(
-								"[the] placeholder",   // исправлена опечатка
+								"[the] placeholder",
 								"[the] [placeholder] (1:prefix|2:identifier)"
 						)
 						.build()
 		);
 	}
 
-	// остальной код без изменений...
 	private enum PlaceholderPart {
 		PLACEHOLDER,
 		PREFIX,

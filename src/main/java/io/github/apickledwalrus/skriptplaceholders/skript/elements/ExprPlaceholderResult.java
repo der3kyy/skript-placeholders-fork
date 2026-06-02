@@ -47,7 +47,6 @@ public class ExprPlaceholderResult extends SimpleExpression<String> {
 		);
 	}
 
-	// остальной код без изменений...
 	@Override
 	public boolean init(Expression<?> @NotNull [] exprs, int matchedPattern, @NotNull Kleenean isDelayed, @NotNull ParseResult parseResult) {
 		if (!getParser().isCurrentEvent(PlaceholderEvent.class)) {

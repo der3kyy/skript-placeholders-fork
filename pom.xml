@@ -15,7 +15,6 @@
     </properties>
     <build>
         <plugins>
-            <!-- Maven Compiler Plugin с настройкой annotationProcessorPaths для Lombok на JDK 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -33,7 +32,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Shade Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -57,7 +55,6 @@
             </plugin>
         </plugins>
     </build>
-
     <repositories>
         <repository>
             <id>skript-releases</id>
@@ -72,7 +69,6 @@
             <id>papermc</id>
             <url>https://papermc.io/repo/repository/maven-public/</url>
         </repository>
-        <!-- Дополнительный репозиторий для надёжности -->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
@@ -81,19 +77,14 @@
                 <id>placeholderapi</id>
                 <url>https://repo.helpch.at/releases/</url>
             </repository>
-
     </repositories>
-
     <dependencies>
-        <!-- Skript 2.15.2 (обязательно) -->
         <dependency>
             <groupId>com.github.SkriptLang</groupId>
             <artifactId>Skript</artifactId>
             <version>2.15.2</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Lombok (актуальная версия для JDK 21) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -106,15 +97,12 @@
             <version>2.12.2</version>
             <scope>provided</scope>
         </dependency>
-        <!-- Spigot API (оставлено как у вас, но можно заменить на Paper API) -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.21.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Jackson (актуальные версии) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -130,23 +118,12 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.17.2</version>
         </dependency>
-
-        <!-- Telegram Bots API (актуальная версия) -->
-        <dependency>
-            <groupId>org.telegram</groupId>
-            <artifactId>telegrambots</artifactId>
-            <version>6.9.7.1</version>
-        </dependency>
-
-        <!-- bStats -->
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>3.1.0</version>
             <scope>compile</scope>
         </dependency>
-
-        <!-- JetBrains аннотации (фиксированная версия, не RELEASE) -->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>

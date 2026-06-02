@@ -15,7 +15,6 @@ public class SkriptPlaceholders extends JavaPlugin {
 	private static SkriptPlaceholders instance;
 	private PlaceholderRegistry registry;
 
-	// Публичные реестры для использования в элементах синтаксиса
 	public static SyntaxRegistry syntaxRegistry;
 	public static EventValueRegistry eventValueRegistry;
 
@@ -47,7 +46,6 @@ public class SkriptPlaceholders extends JavaPlugin {
 		instance = this;
 		registry = new PlaceholderRegistry(this);
 
-		// Современная регистрация аддона
 		SkriptAddon modernAddon = Skript.instance().registerAddon(this.getClass(), "SkriptPlaceholders");
 		syntaxRegistry = modernAddon.syntaxRegistry();
 		eventValueRegistry = modernAddon.registry(
@@ -55,7 +53,6 @@ public class SkriptPlaceholders extends JavaPlugin {
 				() -> EventValueRegistry.empty(Skript.getInstance())
 		);
 
-		// Принудительно загружаем классы элементов, чтобы выполнились их static-блоки
 		loadSyntaxClasses();
 	}
 

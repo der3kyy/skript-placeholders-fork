@@ -46,7 +46,6 @@ public class ExprRelationalPlaceholderPlayers extends SimpleExpression<Player> {
 		);
 	}
 
-	// остальной код без изменений...
 	private boolean first;
 
 	@Override

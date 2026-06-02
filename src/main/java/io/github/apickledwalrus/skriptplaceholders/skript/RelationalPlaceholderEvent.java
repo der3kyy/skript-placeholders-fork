@@ -17,7 +17,6 @@ public class RelationalPlaceholderEvent extends PlaceholderEvent {
 
 	@Override
 	public @NotNull Player getPlayer() {
-		//noinspection ConstantConditions - player is passed up as NotNull
 		return super.getPlayer().getPlayer();
 	}
 
